@@ -8,6 +8,8 @@ import torch
 
 import matplotlib.pyplot as plt
 
+plt.rcParams["text.usetex"] = True
+
 parser = argparse.ArgumentParser(description='Muon / Scion steady-state matrix norm simulation')
 
 parser.add_argument('-m', default=384, type=int)
@@ -95,6 +97,7 @@ def main():
   plt.scatter(momentum, regular, label="regular")
   plt.scatter(momentum, nesterov_mo, label="Nesterov")
 
+  plt.title(f"${args.m} \\times {args.n}$ matrix norm vs. momentum")
   plt.xlabel("Momentum")
   plt.ylabel("Norm")
   plt.legend()

@@ -7,6 +7,8 @@ import torch
 
 import matplotlib.pyplot as plt
 
+plt.rcParams["text.usetex"] = True
+
 parser = argparse.ArgumentParser(description='Scion steady-state vector norm simulation')
 
 parser.add_argument('-n', default=1024, type=int)
@@ -62,6 +64,7 @@ def main():
   plt.scatter(momentum, regular, label="regular")
   plt.scatter(momentum, nesterov_mo, label="Nesterov")
 
+  plt.title(f"$n = {args.n}$ vector norm vs. momentum")
   plt.xlabel("Momentum")
   plt.ylabel("Norm")
   plt.legend()
