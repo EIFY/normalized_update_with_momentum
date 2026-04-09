@@ -65,8 +65,8 @@ def main():
   plt.scatter(momentum, nesterov_mo, label="Nesterov")
 
   plt.title(f"$n = {args.n}$ vector norm vs. momentum")
-  plt.xlabel("Momentum")
-  plt.ylabel("Norm")
+  plt.xlabel("Momentum $\\alpha = 1 - \\mu$")
+  plt.ylabel("Norm $||\\theta||_2$")
   plt.legend()
 
   grid = np.linspace(0.1, 1., num=100)
