@@ -50,6 +50,7 @@ def main():
   args = parser.parse_args()
 
   momentum = np.linspace(0.1, 1., num=10)
+  momentum = np.insert(momentum, 0, 0.05)
   regular = []
   nesterov_mo = []
 
@@ -69,7 +70,8 @@ def main():
   plt.ylabel("Norm $||\\theta||_2$")
   plt.legend()
 
-  grid = np.linspace(0.1, 1., num=100)
+  t = (np.linspace(0.05, 0.1, num=5, endpoint=False), np.linspace(0.1, 1., num=91))
+  grid = np.concatenate(t)
   pred = np.sqrt(args.lr / 2 / args.wd * (2 - grid) / grid)
   nesterov_pred = pred / np.sqrt(1 + 4*grid - 6*grid**2 + 2*grid**3)
 
